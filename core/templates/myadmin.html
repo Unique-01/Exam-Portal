@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div>
+        <br />
+        <div class="text-right">
+            <a href="{% url 'logout' %}" class="btn btn-danger ">Logout</a>
+        </div>
+        <div class="m-3">
+            <form action="">
+                <div class="input-group">
+                    <input type="text"
+                           class="form-control rounded"
+                           name="q"
+                           placeholder="Search Exam"
+                           aria-label="Search"
+                           aria-describedby="search-addon"/>
+                    <button type="submit" class="btn btn-outline-primary">Search Exam</button>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            {% if request.GET.q is not null %}
+                <h4>Search Results for "{{ request.GET.q }}"</h4>
+                <div class="row">
+                    {% for exam in examfilter %}
+                        <h6 class="border border-info pt-3 col-md-5  m-2">
+                            <a href="{% url 'exam_update' exam.id %}">{{ exam.subject |upper }}</a>
+                            <p class="{% if exam.status == 'LOADING...' %}text-danger {% else %}text-success{% endif %}">
+                                <strong>({{ exam.status }})</strong>
+                            </p>
+                        </h6>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="ml-3">
+            <button class="btn btn-outline-primary"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseExam"
+                    aria-expanded="false"
+                    aria-controls="collapseExam">
+                Exam List
+            </button>
+            <button class="btn btn-outline-dark"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseTimetable"
+                    aria-expanded="false"
+                    aria-controls="collapseTimetable">
+                Timetable List
+            </button>
+        </div>
+        <div class="shadow p-5 m-3 collapse" id="collapseExam">
+            <h3 class=" text-secondary">EXAMS</h3>
+            <div class="row">
+                {% for exam in examlist %}
+                    <h6 class="border border-info pt-3 col-md-5  m-2">
+                        <a href="{% url 'exam_update' exam.id %}">{{ exam.subject |upper }}</a>
+                        <p class="{% if exam.status == 'LOADING...' %}text-danger {% else %}text-success{% endif %}">
+                            <strong>({{ exam.status }})</strong>
+                        </p>
+                    </h6>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="shadow p-5 m-3 collapse" id="collapseTimetable">
+            <h3 class=" text-secondary">TIMETABLES</h3>
+            <div class="row">
+                {% for timetable in timetable_list %}
+                    <h6 class="border border-info pt-3 col-md-5   m-2">
+                        <a href="{% url 'timetable_update' timetable.id %}">{{ timetable.title |upper }}</a>
+                        <p class="{% if timetable.status == 'LOADING...' %}text-danger {% else %}text-success{% endif %}">
+                            <strong>({{ timetable.status }})</strong>
+                        </p>
+                    </h6>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="m-3">
+            <button class="btn btn-primary"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseExamForm"
+                    aria-expanded="false"
+                    aria-controls="collapseExamForm">
+                Upload Exam
+            </button>
+            <a href="{% url 'timetable_form' %}" class="btn btn-secondary">Upload Timetable</a>
+        </div>
+        <form action=""
+              method="post"
+              class="shadow-lg m-2 p-3 collapse"
+              id="collapseExamForm">
+            <h4 class="text-center text-secondary">Exam Form</h4>
+            {% csrf_token %}
+            {{ examform.media }}
+            {{ examform|crispy }}
+            <button type="submit" class="btn btn-primary">Upload Exam</button>
+        </form>
+    </div>
+{% endblock content %}

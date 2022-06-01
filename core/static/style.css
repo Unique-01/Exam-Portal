@@ -1,0 +1,15 @@
+img{
+    max-width: 80%;
+    max-height: 80vh;
+}
+body{
+    background: linear-gradient(to right,white,gray);
+   
+}
+.success{
+    color: purple;
+    font-family: cursive;
+}
+footer{
+    color: purple;
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="" method="post" class="shadow-lg m-2 p-3">
+        {% csrf_token %}
+        {{ update_form.media }}
+        {{ update_form|crispy }}
+        <button class="btn btn-outline-primary" type="submit">Update</button>
+    </form>
+{% endblock content %}
