@@ -1,6 +1,6 @@
 img{
-    max-width: 80%;
-    max-height: 80vh;
+    max-width: 100%;
+    max-height: 100%;
 }
 body{
     background: linear-gradient(to right,white,gray);
@@ -12,4 +12,7 @@ body{
 }
 footer{
     color: purple;
+}
+marquee>p{
+    color: red;
 }

@@ -5,7 +5,7 @@
         {% include 'head.html' %}
     </head>
     <body>
-        <main role="main" class=" m-5 shadow mb-2 p-3 bg-white rounded">
+        <main role="main" class="col-md-11 m-auto  col-sm-12 shadow mb-2 p-3 bg-white rounded">
             <div class="p-4 bg">
                 <h1 class="text-center success display-4">
                     <i class="fa fa-home"></i> SUCCESS HOME
@@ -14,8 +14,8 @@
             <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                 {% include 'navbar.html' %}
             </nav>
-            <div class="alert text-center bg-primary ">
-                <a class="text-white" href="">
+            <div class="alert text-center bg-success ">
+                <a class="text-white" href="https://t.me/+dpUl7oFJpWxmMmI0" target="blank">
                     <p>
                         PLEASE JOIN OUR TELEGRAM GROUP AND STAY UPDATED WITH FREE ANSWERS
                     </p>
@@ -24,7 +24,7 @@
                     </p>
                 </a>
             </div>
-            <section class=" pb-5">
+            <section class=" pb-5 col-sm-12">
                 {% if messages %}
                     {% for message in messages %}
                         <div class="alert {% if message.tags == 'error' %}alert-danger {% else %}alert-{{ message.tags }}{% endif %}  alert-dismissible fade show text-center"
