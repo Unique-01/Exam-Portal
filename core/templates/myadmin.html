@@ -61,6 +61,7 @@
                         <p class="{% if exam.status == 'LOADING...' %}text-danger {% else %}text-success{% endif %}">
                             <strong>({{ exam.status }})</strong>
                         </p>
+                        <p><a href="{% url 'exam_delete' exam.pk %}" class="btn btn-danger">Delete</a></p>
                     </h6>
                 {% endfor %}
             </div>
@@ -74,6 +75,7 @@
                         <p class="{% if timetable.status == 'LOADING...' %}text-danger {% else %}text-success{% endif %}">
                             <strong>({{ timetable.status }})</strong>
                         </p>
+                        <p><a href="{% url 'timetable_delete' timetable.pk %}" class="btn btn-danger">Delete</a></p>
                     </h6>
                 {% endfor %}
             </div>

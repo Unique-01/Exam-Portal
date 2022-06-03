@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from django.urls import reverse
 from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views import generic
 
 # Create your views here.
 
@@ -90,3 +92,23 @@ def timetable(request,id):
     timetable_obj = get_object_or_404(TimeTable,id=id)
 
     return render(request,'timetable.html',{'timetable_obj':timetable_obj})
+
+class ExamDelete(generic.DeleteView):
+    model = Exam
+    success_url = '/myadmin'
+    template_name = 'exam_delete.html'
+
+    def get_success_url(self):
+        messages.success(self.request, "Exam has been deleted successfully")
+        return reverse("myadmin")
+
+class TimeTableDelete(generic.DeleteView):
+    model = TimeTable
+    success_url = '/myadmin'
+    template_name = 'timetable_delete.html'
+
+    def get_success_url(self):
+        messages.success(self.request, "Timetable has been deleted successfully")
+        return reverse("myadmin")
+
+
