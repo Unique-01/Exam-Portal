@@ -19,10 +19,16 @@ def indexview(request):
         # examlist = get_object_or_404(Exam,exam_pin=query)
         if not examlist.exists():
            messages.error(request,"Invalid pin")
-        
+
     else:
         examlist = Exam.objects.none()
     return render(request,'index.html',{'examlist':examlist,'timetable_list':timetable_list})
+
+#def examview(request,id):
+    #exam_obj = get_object_or_404( Exam,id=id)
+
+    #return render(request,"exam.html",{"exam_obj":exam_obj})
+
 
 @login_required
 def adminview(request):

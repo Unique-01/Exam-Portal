@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 STATUS = [
     ('LOADING...','loading'),
@@ -21,6 +22,9 @@ class Exam(models.Model):
     def __str__(self):
         return self.subject
 
+    # def get_absolute_url(self):
+    #     return reverse('examdetailsitemap', args=[str(self.id)])
+
 
 
 class TimeTable(models.Model):
@@ -35,8 +39,12 @@ class TimeTable(models.Model):
         return self.title
 
 
+    def get_absolute_url(self):
+        return reverse('timetable', args=[str(self.id)])
 
 
-    
+
+
+
 
 
