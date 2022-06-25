@@ -35,10 +35,11 @@
     <h5 class="text-success"> Previous Pins</h5>
     <div>
       {% for exam in pins %}
-
-     <span class="text-danger">
-     {{exam.exam_pin}},
-      </span>
+      <div>
+        {% if exam.date_posted | is_older_than_a_day %}
+        {{exam.exam_pins}}
+        {% endif %}
+      </div>
       {% endfor %}
        </div>
     </div>
