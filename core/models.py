@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.urls import reverse
+import datetime
 
 STATUS = [
     ('LOADING...','loading'),
@@ -21,7 +22,9 @@ class Exam(models.Model):
 
     def __str__(self):
         return self.subject
-
+    
+    def older_than_a_day(self):
+        return (datetime.date.today() - self.date_posted).days > 1
     # def get_absolute_url(self):
     #     return reverse('examdetailsitemap', args=[str(self.id)])
 

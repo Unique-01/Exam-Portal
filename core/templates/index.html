@@ -31,6 +31,13 @@
         </div>
     </form>
     <br />
+    <div>
+      {% for exam in examlist %}
+      <div>
+        {{exam.exam_pin.older_than_a_day}},
+      </div>
+      {% endfor %}
+    </div>
     <div class="border-top ">
         <div class="border-bottom  ">
             {% for exam in examlist %}
