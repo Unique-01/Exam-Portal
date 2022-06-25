@@ -31,13 +31,18 @@
         </div>
     </form>
     <br />
+    <div class="shadow p-3">
+    <h5 class="text-success"> Previous Pins</h5>
     <div>
-      {% for exam in examlist %}
-      <div>
-        {{exam.exam_pin.older_than_a_day}},
-      </div>
+      {% for exam in pins %}
+
+     <span class="text-danger">
+     {{exam.exam_pin}},
+      </span>
       {% endfor %}
+       </div>
     </div>
+    <br/>
     <div class="border-top ">
         <div class="border-bottom  ">
             {% for exam in examlist %}
@@ -80,7 +85,7 @@
             <div class="col-md-5 m-4 border border-primary p-3  rounded">
                 <h6>
                     <a class="text-primary" href="https://t.me/+dpUl7oFJpWxmMmI0" target="blank">
-                        <i class="fa fa-telegram" aria-hidden="true"></i> 
+                        <i class="fa fa-telegram" aria-hidden="true"></i>
                         Join our Telegram Group for more updates
                     </a>
                 </h6>

@@ -3,7 +3,7 @@ from django.urls import reverse
 from .models import *
 from .forms import *
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
 from django.views import generic
 
 # Create your views here.
@@ -12,6 +12,7 @@ from django.views import generic
 def indexview(request):
     examlist = Exam.objects.all()
     timetable_list = TimeTable.objects.all().order_by('-updated')
+    pins = Exam.objects.all()
 
     query = request.POST.get('exam')
     if query:
@@ -22,7 +23,7 @@ def indexview(request):
 
     else:
         examlist = Exam.objects.none()
-    return render(request,'index.html',{'examlist':examlist,'timetable_list':timetable_list})
+    return render(request,'index.html',{'examlist':examlist,'timetable_list':timetable_list,'pins':pins})
 
 #def examview(request,id):
     #exam_obj = get_object_or_404( Exam,id=id)
