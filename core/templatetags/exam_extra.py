@@ -1,8 +1,8 @@
 from django import template
-import datetime 
+import datetime
 
 
-register = template.Library() 
+register = template.Library()
 
 
 @register.filter(expects_localtime=True)

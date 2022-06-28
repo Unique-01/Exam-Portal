@@ -22,9 +22,9 @@ class Exam(models.Model):
 
     def __str__(self):
         return self.subject
-    
+
     def older_than_a_day(self):
-        return (datetime.date.today() - self.date_posted).days > 1
+        return (datetime.date.today() - self.date_posted.date()).days > 1
     # def get_absolute_url(self):
     #     return reverse('examdetailsitemap', args=[str(self.id)])
 

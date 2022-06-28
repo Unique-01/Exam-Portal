@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load exam_extra %}
 {% block content %}
     <br />
     <marquee behavior="" direction="">
@@ -35,12 +36,12 @@
     <h5 class="text-success"> Previous Pins</h5>
     <div>
       {% for exam in pins %}
-      <div>
-        {% if exam.date_posted | is_older_than_a_day %}
-        {{exam.exam_pins}}
-        {% endif %}
-      </div>
+
+       {% if exam.older_than_a_day %}
+        <span class="text-danger">{{exam.exam_pin}},</span>
+       {% endif %}
       {% endfor %}
+
        </div>
     </div>
     <br/>
