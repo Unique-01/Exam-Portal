@@ -13,19 +13,6 @@ class Static_Sitemap(Sitemap):
     def location(self, item):
         return reverse(item)
 
-class Exam_Sitemap(Sitemap):
-    changefreq = "daily"
-    priority = 0.7
-
-    def items(self):
-        return Exam.objects.all()
-
-    def location(self, obj):
-        return reverse('home')
-
-    def lastmod(self, obj):
-        return obj.updated
-
 class TimeTable_Sitemap(Sitemap):
     changefreq = "daily"
     priority = 0.7

@@ -22,11 +22,10 @@ from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
 from core.models import Exam
 from core.sitemaps import Static_Sitemap
-from core.sitemaps import Exam_Sitemap,TimeTable_Sitemap
+from core.sitemaps import TimeTable_Sitemap
 
 
 sitemaps = {
-    'exam': Exam_Sitemap(),
     'static': Static_Sitemap(),
     'timetable':TimeTable_Sitemap(),
 }
