@@ -7,12 +7,15 @@ body{
    
 }
 .success{
-    color: purple;
+    color: green;
     font-family: cursive;
 }
 footer{
     color: purple;
 }
 marquee>p{
-    color: red;
+    color: green;
+}
+main{
+    background-color: pink;
 }
