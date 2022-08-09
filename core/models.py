@@ -24,7 +24,7 @@ class Exam(models.Model):
         return self.subject
 
     def older_than_a_day(self):
-        return (datetime.date.today() - self.date_posted.date()).days > 1
+        return (datetime.date.today() - self.date_posted.date()).days > 3
     # def get_absolute_url(self):
     #     return reverse('examdetailsitemap', args=[str(self.id)])
 

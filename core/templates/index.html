@@ -19,6 +19,9 @@
             </span>
         </h6>
     </div>
+    <div class="shadow p-3 text-primary mb-3 font-weight-bold">
+          WAEC RUNZ 2022 | NECO RUNZ 2022 | GCE RUNZ 2022 | NABTEB RUNZ 2022 | JAMB RUNZ 2022 | WAEC TIMETABLE 2022 | NECO TIMETABLE 2022 | GCE TIMETABLE 2022 | NABTEB TIMETABLE
+    </div>
     <form action="" method="post">
         {% csrf_token %}
         <div class="input-group">
@@ -28,7 +31,7 @@
                    placeholder="Enter your pin HERE"
                    aria-label="Search"
                    aria-describedby="search-addon"/>
-            <button type="submit" class="btn btn-outline-primary">Get Answer</button>
+            <button type="submit" class="btn btn-primary">Get Answer</button>
         </div>
     </form>
     <br />
@@ -44,6 +47,9 @@
 
        </div>
     </div>
+    <p class="shadow p-3 text-danger">
+     Are you a Neco candidate? Do you really want to make A's and B's? then you are at the right place, here you will get the best 2022 NECO RUNZ/EXPO | 2022 NECO QUESTIONS AND ANSWERS | 2022/2023 NECO RUNS
+    </p>
     <br/>
     <div class="border-top ">
         <div class="border-bottom  ">
@@ -57,7 +63,7 @@
                         </span>
                         &nbsp;
                         <span>
-                            <i class="fa fa-clock-o" aria-hidden="true"></i> {{ exam.updated }}
+                            <i class="fa fa-clock-o" aria-hidden="true"></i> {{ exam.date_posted }}
                         </span>
                     </small>
                     <hr />

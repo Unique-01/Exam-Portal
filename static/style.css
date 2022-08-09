@@ -3,16 +3,19 @@ img{
     max-height: 100%;
 }
 body{
-    background: linear-gradient(to right,white,gray);
-   
+    /*background: linear-gradient(to right,white,gray);*/
+
 }
 .success{
-    color: purple;
+    color: green;
     font-family: cursive;
 }
 footer{
     color: purple;
 }
 marquee>p{
-    color: red;
+    color: green;
+}
+main{
+    background-color: pink;
 }
