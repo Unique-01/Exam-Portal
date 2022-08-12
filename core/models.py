@@ -9,6 +9,14 @@ STATUS = [
     ('UPDATED','updated')
 ]
 
+EXAMTYPE =[
+    ('neco','neco'),
+    ('waec','waec'),
+    ('jupeb','jupeb'),
+    ('nabteb','nabteb'),
+    ('frontpage','frontpage')
+]
+
 # Create your models here.
 class Exam(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
@@ -46,7 +54,13 @@ class TimeTable(models.Model):
         return reverse('timetable', args=[str(self.id)])
 
 
-
+class ExamNews(models.Model):
+    title = models.CharField(max_length=500)
+    contents = RichTextUploadingField()
+    exam_type = models.CharField(max_length=10,choices=EXAMTYPE,default='')
+    
+    def __str__(self):
+        return self.title
 
 
 

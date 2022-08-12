@@ -51,6 +51,31 @@
                     aria-controls="collapseTimetable">
                 Timetable List
             </button>
+            <button class="btn btn-outline-success"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseExamNews"
+                    aria-expanded="false"
+                    aria-controls="collapseExamNews">
+                Exam News
+            </button>
+            <button class="btn btn-primary"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseExamForm"
+                    aria-expanded="false"
+                    aria-controls="collapseExamForm">
+                Upload Exam
+            </button>
+            <button class="btn btn-success"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseExamNewsForm"
+                    aria-expanded="false"
+                    aria-controls="collapseExamNewsForm">
+                Upload Exam News
+            </button>
+            <a href="{% url 'timetable_form' %}" class="btn btn-secondary">Upload Timetable</a>
         </div>
         <div class="shadow p-3 m-3 collapse" id="collapseExam">
             <h3 class=" text-secondary">EXAMS</h3>
@@ -65,6 +90,19 @@
                     </h6>
                 {% endfor %}
             </div>
+            
+        </div>
+        <div class="shadow p-3 m-3 collapse" id="collapseExamNews">
+            <h3 class=" text-secondary">EXAMS NEWS</h3>
+            <div class="row">
+                {% for exam in examnews %}
+                    <h6 class="border border-info pt-3 col-md-5  m-2">
+                        <a href="{% url 'exam_news_update' exam.id %}">{{ exam.title |upper }}</a>
+                        <p><a href="{% url 'exam_news_delete' exam.pk %}" class="btn btn-danger">Delete</a></p>
+                    </h6>
+                {% endfor %}
+            </div>
+            
         </div>
         <div class="shadow p-5 m-3 collapse" id="collapseTimetable">
             <h3 class=" text-secondary">TIMETABLES</h3>
@@ -80,8 +118,8 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="m-3">
-            <button class="btn btn-primary"
+        <!-- <div class="m-3"> -->
+            <!-- <button class="btn btn-primary"
                     type="button"
                     data-toggle="collapse"
                     data-target="#collapseExamForm"
@@ -89,17 +127,35 @@
                     aria-controls="collapseExamForm">
                 Upload Exam
             </button>
-            <a href="{% url 'timetable_form' %}" class="btn btn-secondary">Upload Timetable</a>
-        </div>
+            <button class="btn btn-success"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseExamNewsForm"
+                    aria-expanded="false"
+                    aria-controls="collapseExamNewsForm">
+                Upload Exam News
+            </button>
+            <a href="{% url 'timetable_form' %}" class="btn btn-secondary">Upload Timetable</a> -->
+        <!-- </div> -->
         <form action=""
               method="post"
-              class="shadow-lg m-md-2 p-3 collapse"
+              class="shadow-lg m-md-2 p-3 collapse bg-white"
               id="collapseExamForm">
             <h4 class="text-center text-secondary">Exam Form</h4>
             {% csrf_token %}
-            {{ examform.media }}
+            {{ examnewsform.media }}
             {{ examform|crispy }}
             <button type="submit" class="btn btn-primary">Upload Exam</button>
+        </form>
+        <form action=""
+              method="post"
+              class="shadow-lg m-md-2 p-3 collapse bg-white rounded"
+              id="collapseExamNewsForm">
+            <h4 class="text-center text-secondary">Exam News Form</h4>
+            {% csrf_token %}
+            {{ examform.media }}
+            {{ examnewsform|crispy }}
+            <button type="submit" class="btn btn-primary">Upload Exam News</button>
         </form>
     </div>
 {% endblock content %}

@@ -13,3 +13,9 @@ class TimeTableForm(forms.ModelForm):
     class Meta:
         model = TimeTable
         fields = ['title','content','status']
+
+class ExamNewsForm(forms.ModelForm):
+    contents = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = ExamNews
+        fields = ['title','contents','exam_type']

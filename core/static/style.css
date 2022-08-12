@@ -3,7 +3,8 @@ img{
     max-height: 100%;
 }
 body{
-    background: linear-gradient(to right,white,gray);
+    /* background: linear-gradient(to right,white,gray); */
+    background-image: url("background.png");
 
 }
 .success{
@@ -17,5 +18,37 @@ marquee>p{
     color: green;
 }
 main{
-    background-color: pink;
+    /* background-color:coral; */
+}
+.navbar{
+    /* max-height: 35px; */
+}
+li{
+    list-style: none;
+}
+
+.border-2{
+    border-style: solid;
+    border-width: 2px;
+}
+.border-3{
+    border-style: solid;
+    border-width: 3px;
+}
+.gap{
+    grid-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-left: -25px;
+
+}
+.mynavbar{
+    max-height: 92px;
+    /* padding-left: -10px; */
+}
+.bg-red{
+    background-color: red;
+}
+.text-red{
+    color: red;
 }

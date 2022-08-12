@@ -3,21 +3,30 @@
 <html lang="en">
     <head>
         {% include 'head.html' %}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8757076203661957"
-     crossorigin="anonymous"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8757076203661957" crossorigin="anonymous"></script>
+        {% block title %}
+        {% endblock title %}
     </head>
     <body class="mt-md-3">
-        <main role="main" class="  col-md-11 m-md-auto  col-sm-12 shadow mb-2 p-3 main rounded">
-            <div class="p-4 bg">
-                <h1 class="text-center success display-4 ">
+        <main role="main"
+              class="  col-md-11 m-md-auto  col-sm-12 shadow mb-2 p-3 main rounded">
+            <div class="p-4 bg-white">
+                <!-- <h1 class="text-center success display-4 ">
                     <i class="fa fa-home"></i> SUCCESS HOME
-                </h1>
+                </h1> -->
+                <img src="{% static 'SUCCESSHOME4.png' %}"
+                     alt=""
+                     width=""
+                     height="250px"
+                     class="img-fluid rounded mx-auto d-block"/>
             </div>
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-md bg-success navbar-dark mb-3 py-0">
                 {% include 'navbar.html' %}
             </nav>
-            <div class="alert text-center bg-success ">
-                <a class="text-white" href="https://t.me/+dpUl7oFJpWxmMmI0" target="blank">
+            <div class="alert text-center bg-red ">
+                <a class="text-white"
+                   href="https://t.me/+dpUl7oFJpWxmMmI0"
+                   target="blank">
                     <p>
                         PLEASE JOIN OUR TELEGRAM GROUP AND STAY UPDATED WITH FREE ANSWERS
                     </p>
@@ -26,26 +35,62 @@
                     </p>
                 </a>
             </div>
-            <section class=" pb-5 col-sm-12">
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert {% if message.tags == 'error' %}alert-danger {% else %}alert-{{ message.tags }}{% endif %}  alert-dismissible fade show text-center"
-                             role="alert">
-                            {{ message }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                {% block content %}
-                {% endblock content %}
-            </section>
-            <footer class="text-center">
-                <small >Copyright &copy; Success Home</small>
-            </footer>
-        </main>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    </body>
+            <div class="mynavbar bg-white border-success border-3 pr-3">
+                <ul class=" gap pt-2 font-weight-bold  ">
+                    <a href="{% url 'waec' %}" class="text-decoration-none">
+                    <li class=" border rounded border-success shadow p-1 h-75 ">
+                        <img src="{% static 'waec.png' %}" alt="" height="40px"/>
+                        <p class="text-dark">
+                            WAEC
+                        </p>
+                    </li>
+                </a>
+                <a href="{% url 'neco' %}" class="text-decoration-none">
+                    <li class=" border rounded border-success shadow p-1 h-75">
+                        <img src="{% static 'neco.jpeg' %}" alt="" height="40px" width="" />
+                        <p class="text-dark">
+                            NECO
+                        </p>
+                    </li>
+                </a>
+                <a href="{% url 'nabteb' %}" class="text-decoration-none">
+                    <li class="p-1 border rounded border-success shadow h-75 ">
+                        <img src="{% static 'nabteb.jpeg' %}" alt="" height="40px" width="" />
+                        <p class="text-dark">
+                            NABTEB
+                        </p>
+                    </li>
+                </a>
+                <a href="{% url 'jupeb' %}" class="text-decoration-none">
+                <li class="p-1 border rounded border-success shadow h-75 ">
+                    <img src="{% static 'jupeb.jpeg' %}" alt="" height="40px" width="" />
+                    <p class="text-dark">
+                        JUPEB
+                    </p>
+                </li>
+            </a>
+        </ul>
+    </div>
+    <section class=" pb-5 col-sm-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags == 'error' %}alert-danger {% else %}alert-{{ message.tags }}{% endif %}  alert-dismissible fade show text-center"
+                     role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock content %}
+    </section>
+    <footer class="text-center">
+        <small >Copyright &copy; Success Home</small>
+    </footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
 </html>

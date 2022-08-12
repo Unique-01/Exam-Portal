@@ -3,24 +3,26 @@
 {% block content %}
     <br />
     <marquee behavior="" direction="">
-        <p class="">YOUR #1 BEST WEBSITE FOR WAEC RUNZ | NECO RUNZ AND GCE RUNZ </p>
+    <p>
+        YOUR #1 BEST WEBSITE FOR WAEC RUNZ | NECO RUNZ AND GCE RUNZ
+    </p>
     </marquee>
-    <div class="border border-primary text-center p-3 m-4 rounded-pill">
+    <div class="border border-secondary text-center p-3 m-4 rounded-pill bg-light">
         <h5>SUCCESS HOME CONTACTS</h5>
         <h6>
             <span>
                 <i class="fa fa-whatsapp text-success" aria-hidden="true"></i>
-                09133520101
+                09131506532
             </span>
             <span>&nbsp; || &nbsp;</span>
             <span>
                 <i class="fa fa-phone text-success" aria-hidden="true"></i>
-                +2348167402410
+                +2348151834018
             </span>
         </h6>
     </div>
-    <div class="shadow p-3 text-primary mb-3 font-weight-bold">
-          WAEC RUNZ 2022 | NECO RUNZ 2022 | GCE RUNZ 2022 | NABTEB RUNZ 2022 | JAMB RUNZ 2022 | WAEC TIMETABLE 2022 | NECO TIMETABLE 2022 | GCE TIMETABLE 2022 | NABTEB TIMETABLE
+    <div class="shadow p-3 text-dark mb-3 font-weight-bold bg-white">
+        WAEC RUNZ 2022 | NECO RUNZ 2022 | GCE RUNZ 2022 | NABTEB RUNZ 2022 | JAMB RUNZ 2022 | WAEC TIMETABLE 2022 | NECO TIMETABLE 2022 | GCE TIMETABLE 2022 | NABTEB TIMETABLE
     </div>
     <form action="" method="post">
         {% csrf_token %}
@@ -31,30 +33,30 @@
                    placeholder="Enter your pin HERE"
                    aria-label="Search"
                    aria-describedby="search-addon"/>
-            <button type="submit" class="btn btn-primary">Get Answer</button>
+            <button type="submit" class="btn btn-primary font-weight-bold">Get Answer</button>
         </div>
     </form>
     <br />
-    <div class="shadow p-3">
-    <h5 class="text-success"> Previous Pins</h5>
-    <div>
-      {% for exam in pins %}
-
-       {% if exam.older_than_a_day %}
-        <span class="text-danger">{{exam.exam_pin}},</span>
-       {% endif %}
-      {% endfor %}
-
-       </div>
+    <div class="shadow p-3 bg-secondary">
+        <h5 class="text-light">Previous Pins</h5>
+        <div>
+            {% for exam in pins %}
+                {% if exam.older_than_a_day %}<span class="text-warning">{{ exam.exam_pin }},</span>{% endif %}
+            {% endfor %}
+        </div>
     </div>
-    <p class="shadow p-3 text-danger">
+    <div class="shadow p-3 mt-4 bg-white">
+        {% for field in update %}{{ field.contents | safe }}{% endfor %}
+    </div>
+    <br />
+    <!-- <p class="shadow p-3 text-white bg-success">
      Are you a Neco candidate? Do you really want to make A's and B's? then you are at the right place, here you will get the best 2022 NECO RUNZ/EXPO | 2022 NECO QUESTIONS AND ANSWERS | 2022/2023 NECO RUNS
-    </p>
-    <br/>
+    </p> -->
+    <br />
     <div class="border-top ">
         <div class="border-bottom  ">
             {% for exam in examlist %}
-                <div class=" shadow p-3 col-sm-12">
+                <div class=" shadow p-3 col-sm-12 bg-white">
                     <h3>{{ exam.subject|upper }}</h3>
                     <small class="text-muted">
                         <span>
@@ -81,18 +83,20 @@
         </div>
         <div class="row">
             {% for timetable in timetable_list %}
-                <div class="col-md-5 m-4 border border-primary p-3  rounded">
+                <div class="col-md-5 m-4 border border-success p-3  rounded">
                     <h6 >
-                        <a class="text-primary" href="{% url 'timetable' timetable.pk %}">{{ timetable.title|upper }}</a>
+                        <a class="text-success" href="{% url 'timetable' timetable.pk %}">{{ timetable.title|upper }}</a>
                     </h6>
-                    <p class="{% if timetable.status == 'LOADING...' %}text-danger {% else %}text-success{% endif %}">
+                    <p class="{% if timetable.status == 'LOADING...' %}text-red {% else %}text-red{% endif %}">
                         <strong>({{ timetable.status }})</strong>
                     </p>
                 </div>
             {% endfor %}
-            <div class="col-md-5 m-4 border border-primary p-3  rounded">
+            <div class="col-md-5 m-4 border border-success p-3  rounded">
                 <h6>
-                    <a class="text-primary" href="https://t.me/+dpUl7oFJpWxmMmI0" target="blank">
+                    <a class="text-primary"
+                       href="https://t.me/+dpUl7oFJpWxmMmI0"
+                       target="blank">
                         <i class="fa fa-telegram" aria-hidden="true"></i>
                         Join our Telegram Group for more updates
                     </a>

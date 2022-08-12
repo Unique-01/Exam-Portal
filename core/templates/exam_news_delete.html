@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="" method="post" class="shadow p-3">
+        {% csrf_token %}
+        <p>
+            Are you sure you want to delete "{{ examnews.title }}"
+        </p>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'myadmin' %}" class="btn btn-light">Cancel</a>
+    </form>
+{% endblock content %}
